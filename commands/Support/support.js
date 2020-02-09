@@ -23,3 +23,4 @@ const embed2 = new Discord.RichEmbed()
           .setFooter(`Request ID: ${requestID}`)
           message.channel.send({embed: embed2})
     }
+}
