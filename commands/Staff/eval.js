@@ -32,18 +32,7 @@ module.exports.run = (bot, message, args) => {
     } else {
         message.channel.send("Owner only, you cannot use this command.")
     }
-  }
+            }
 
-module.exports.help = {
-  name: "eval",
-  usage: ``,
-  information: "Welp"
-}
-
-module.exports.settings = {
-  permission: "Creator",
-  deleteresponder: true,
-  category: "Info"
-}
     }
 }
