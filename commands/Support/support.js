@@ -8,7 +8,7 @@ module.exports = {
   aliases: ["support", "helpme"],
   
   run:async (bot, message, args) => {
-  let requestID = Math.random(Math.floor() * 9999999999999)
+  let requestID = Math.floor(Math.random() * 9999999999999)
   const embed1 = new Discord.RichEmbed()
             .setTitle("Support notification")
             .setDescription(`${message.channel.author} has requested support`)
