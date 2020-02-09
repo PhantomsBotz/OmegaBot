@@ -7,6 +7,19 @@ let table = new ascii("Commands");
 table.setHeading("Command", "Load status");
 bot.commands = new Discord.Collection()
 bot.aliases = new Discord.Collection()
+// event handler
+module.exports = (bot) => {
+    const load = dirs => {    
+        const events = fs.readdirSync(`./events/${dirs}/`).filter(d => d.endsWith('.js'));
+        for (let file of events) {
+            const evt = require(`./events/${dirs}/${file}`);
+            let eName = file.split('.')[0];
+            bot.on(eName, evt.bind(null, bot));
+          };
+        };
+        ["logs"].forEach(x => load(x));
+};
+// command handler
   fs.readdirSync("./commands/").forEach(dir => {
     
     const commands = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
