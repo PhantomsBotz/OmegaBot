@@ -1,4 +1,3 @@
-app.listen(process.env.PORT);
 var schedule = require('node-schedule');
 const Discord = require("discord.js");
 const bot = new Discord.Client();
