@@ -11,7 +11,7 @@ module.exports = {
   let requestID = Math.random(Math.floor() * 9999999999999)
   const embed1 = new Discord.RichEmbed()
             .setTitle("Support notification")
-            .addDescription(`${message.channel.author} has requested support`)
+            .setDescription(`${message.channel.author} has requested support`)
             .addField("Server", message.guild.name)
             .addField("Userid", message.author.id)
             .setFooter(`Request ID: ${requestID}` )
@@ -19,7 +19,7 @@ module.exports = {
       
 const embed2 = new Discord.RichEmbed()
           .setTitle("Request sent")
-          .addDescription("Please wait for one of our staff members to Direct Message you.")
+          .setDescription("Please wait for one of our staff members to Direct Message you.")
           .setFooter(`Request ID: ${requestID}`)
           message.channel.send({embed: embed2})
     }
