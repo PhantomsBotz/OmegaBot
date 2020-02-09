@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const fs = require("fs");
 var prefix = "^"
-
+let ascii = require('ascii-table')
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status");
 bot.commands = new Discord.Collection()
