@@ -10,8 +10,7 @@ module.exports = {
   run:async (bot, message, args) => {
  
 
-const ownerids = require('..../config.json').ownerids
-
+//
 module.exports.run = (bot, message, args) => {
     if (message.author.id = "513103852409716736") {
     const content = message.content.split(' ').slice(1).join(' ');
