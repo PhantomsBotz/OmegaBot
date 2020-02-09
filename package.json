@@ -1,19 +1,13 @@
 {
-  "name": "Omega",
+  "name": "Himiatchi",
   "version": "0.0.1",
-  "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bot.js"
-  },
-  "author": "newomadness",
-  "license": "MIT",
-  "engines": {
-    "node": "10"
   },
   "dependencies": {
     "discord.js": "^11.3.1",
+    "snekfetch": "^3.6.4",
     "mysql": "latest",
-    "ascii-table": "^0.0.9",
+    "express": "^4.16.3"
   }
 }
