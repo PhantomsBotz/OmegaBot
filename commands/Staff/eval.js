@@ -5,7 +5,7 @@ module.exports = {
   name: 'eval',
   description: 'Evaluates a Javascript String',
   category: 'Staff',
-  aliases: ['exe', 'execute],
+  aliases: ['exe', 'execute'],
   
   run:async (bot, message, args) => {
  
