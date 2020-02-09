@@ -7,5 +7,5 @@ const active = new Map();
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 ["aliases", "commands"].forEach(x => bot[x] = new Discord.Collection());
-["command", "event", "reaction"].forEach(x => require(`./handlers/${x}`)(bot));
+["command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
 bot.login(process.env.token);
