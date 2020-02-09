@@ -3,12 +3,12 @@ const Discord = require('discord.js')
 const prefix = '^'
 module.exports = {
   name: 'kick',
-  description: 'Kicks a member from your server. Requires KICK_MEMBERS permissions.',
+  description: 'Kicks the targeted member from your server.',
   category: 'Moderation',
-  aliases: ['kick', 'secondkick'],
+  aliases: ['kick', 'remove'],
   
   run:async (bot, message, args) => {
-  if (!message.member.hasPermission(["KICK_MEMBERS"])) return;
+    if (!message.member.hasPermission(["KICK_MEMBERS"])) return;
     let member = message.mentions.members.first();
     if (!member) return message.channel.send("You need to mention someone to kick.")
     let reason = args.slice(1).join(' ');
