@@ -17,7 +17,7 @@ module.exports = {
             member.kick().then(message.channel.send(`Okay, just kicked ${member.displayName}.`))
         } else {
             member.kick().then(message.channel.send(`Okay, just kicked ${member.user.username}.`))
-        } else {
+        }
         if (member.displayName) {
             member.kick(reason).then(message.channel.send(`Okay, just kicked ${member.displayName}.`))
         } else {
