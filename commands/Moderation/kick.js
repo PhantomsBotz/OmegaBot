@@ -18,13 +18,11 @@ module.exports = {
             member.ban().then(message.channel.send(`Okay, just banned ${member.displayName}.`))
         } else {
             member.ban().then(message.channel.send(`Okay, just banned ${member.user.username}.`))
-        }
-    } else {
+        } else {
         if (member.displayName) {
             member.ban(reason).then(message.channel.send(`Okay, just banned ${member.displayName}.`))
         } else {
             member.ban(reason).then(message.channel.send(`Okay, just banned ${member.user.username}.`))
         }
-  
     }
 }
