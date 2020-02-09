@@ -1,6 +1,6 @@
 const fs = require('fs')
 const Discord = require('discord.js')
-const prefix = ';'
+const prefix = '^'
 module.exports = {
   name: 'help',
   description: 'Shows this message',
