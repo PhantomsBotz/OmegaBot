@@ -50,8 +50,9 @@ bot.on("ready", () => {
 bot.on("guildMemberAdd", (member) => {
     let guild = member.guild;
     let mainChannel = "676182247958904882"
-    mainChannel.send(`Welcome, ${member} to the Omega Support Server.`)
-    
+    let channel = guild.channels.get(mainChannel)
+  
+  channel.send(`Welcome, ${member} to the Omega Support Server.`)
 })
 
 
