@@ -46,6 +46,17 @@ bot.on("ready", () => {
   bot.user.setActivity("^help");
 });
 
+//Temp BaseWelcomer
+bot.on("guildMemberAdd", (member) => {
+    let guild = member.guild;
+    let mainChannel = "676182247958904882"
+    mainChannel.send(`Welcome, ${member} to the Omega Support Server.`)
+    
+})
+
+
+
+
 bot.on('message', message => {
   let mArray = message.content.split(" ")
   let args = mArray.slice(1)
