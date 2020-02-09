@@ -5,7 +5,7 @@ module.exports = {
   name: 'kick',
   description: 'Kicks a member from your server. Requires KICK_MEMBERS permissions.',
   category: 'Moderation',
-  aliases: ['kick'],
+  aliases: ['kick', 'secondkick'],
   
   run:async (bot, message, args) => {
   if (!message.member.hasPermission(["KICK_MEMBERS"])) return;
