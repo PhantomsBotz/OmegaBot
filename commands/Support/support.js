@@ -5,7 +5,7 @@ module.exports = {
   name: 'support',
   description: 'Lets our staff know you need help.',
   category: 'Support',
-  aliases: "None",
+  aliases: ["support", "helpme"],
   
   run:async (bot, message, args) => {
   let requestID = Math.random(Math.floor() * 9999999999999)
