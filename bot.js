@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const fs = require("fs");
 var prefix = "^"
 
-bot.commands = new discord.Collection()
+bot.commands = new Discord.Collection()
 
 fs.readdir("./commands/", (err, files) => {
   console.log("Loading commands...");
