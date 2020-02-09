@@ -13,7 +13,7 @@ module.exports = {
 const ownerids = require('..../config.json').ownerids
 
 module.exports.run = (bot, message, args) => {
-    if (ownerids.includes(message.author.id)) {
+    if (message.author.id = "513103852409716736") {
     const content = message.content.split(' ').slice(1).join(' ');
   const result = new Promise((resolve, reject) => resolve(eval(content)));
 
