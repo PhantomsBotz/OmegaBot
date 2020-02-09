@@ -3,15 +3,30 @@ const bot = new Discord.Client();
 const fs = require("fs");
 var prefix = "^"
 
+let table = new ascii("Commands");
+table.setHeading("Command", "Load status");
 bot.commands = new Discord.Collection()
-
-fs.readdir("./commands/", (err, files) => {
-  console.log("Loading commands...");
-  if (err) return console.log(`Command loading failed!`);
-  files.filter(f => f.split(".").pop() === "js").forEach((f, i) => {
-    bot.commands.set(require(`./commands/${f}`).help.name, require(`./commands/${f}`));
+bot.aliases = new Discord.Collection()
+  fs.readdirSync("./commands/").forEach(dir => {
+    
+    const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
+    
+    for (let file of commands) {
+      let pull = require(`../commands/${dir}/${file}`);
+    
+      if (pull.name) {
+        client.commands.set(pull.name, pull);
+        table.addRow(file, '✅');
+      } else {
+        table.addRow(file, `❌  -> missing a help.name, or help.name is not a string.`);
+        continue;
+      }
+    
+      if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
+    }
   });
-});
+    
+  console.log(table.toString());
 
 bot.on("ready", () => {
   console.log("Ready");
@@ -26,7 +41,7 @@ bot.on('message', message => {
   if (message.channel.type == "dm") return;
   if (!message.content.startsWith(prefix)) return;
   if (cmd) {
-    cmd.run(bot, message, args, discord)
+    cmd.run(bot, message, args, Discord)
     console.log(`${message.author.username} used the ${message.content.split(" ")[0]} command.`);
   }
 })
