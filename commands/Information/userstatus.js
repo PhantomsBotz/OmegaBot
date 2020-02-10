@@ -29,9 +29,9 @@ module.exports = {
       .addField("Is Developer", isDeveloper)
       .addField("Is Partner", isPartner)
       if(isPremium = true) {
-      embed.setColor("GOLD")
+      em.setColor("GOLD")
       } else {
-      embed.setColor("#5595A6")
+      em.setColor("#5595A6")
       message.channel.send({embed: em})
       }
       
