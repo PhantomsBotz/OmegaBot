@@ -32,8 +32,9 @@ module.exports = {
       em.setColor("GOLD")
       } else {
       em.setColor("#5595A6")
-      message.channel.send({embed: em})
       }
+      message.channel.send({embed: em})
+
       
     }
 }
