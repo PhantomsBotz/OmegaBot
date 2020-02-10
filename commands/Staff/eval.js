@@ -12,7 +12,7 @@ module.exports = {
 
 const IDS = require(`../../config.json`).ownerids 
 module.exports.run = (bot, message, args) => {
-    if (IDS.includes(message.author.usename)) {
+    if (IDS.includes(message.author.id)) {
     const content = message.content.split(' ').slice(1).join(' ');
   const result = new Promise((resolve, reject) => resolve(eval(content)));
 
