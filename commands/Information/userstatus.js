@@ -11,7 +11,7 @@ module.exports = {
       let isPremium;
       let isPartner;
       
-      if(message.member.roles.find(r => r.name === "Premium Member")) {
+      if(message.member.roles.find(r => r.name === "Premium User")) {
         isPremium = true
         console.log("Premium = True")
       } else {
