@@ -12,27 +12,27 @@ module.exports = {
       let isPartner;
       
       if(message.member.roles.find(r => r.name === "Premium User")) {
-        isPremium = true
+        isPremium = "True"
         console.log("Premium = True")
       } else {
-        isPremium = false
+        isPremium = "False"
         console.log("Premium = False")
       }
       if(message.author.id == "513103852409716736" || message.author.id == "456641711486009355") {
-        isDeveloper = true
+        isDeveloper = "True"
         console.log("Developer = True")
       } else {
-        isDeveloper = false
+        isDeveloper = "False"
         console.log("Developer = False")
       }
-      isPartner = false
+      isPartner = "False"
       
       let em = new Discord.RichEmbed()
       .setTitle("User Status")
       .addField("Is Premium User", isPremium)
       .addField("Is Developer", isDeveloper)
       .addField("Is Partner", isPartner)
-      if(isPremium == true) {
+      if(isPremium == "True") {
       em.setColor("GOLD")
       }
     if (isPremium == false) {
