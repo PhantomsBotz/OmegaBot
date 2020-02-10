@@ -13,13 +13,17 @@ module.exports = {
       
       if(message.member.roles.find(r => r.name === "Premium Member")) {
         isPremium = true
+        console.log("Premium = True")
       } else {
         isPremium = false
+        console.log("Premium = False")
       }
       if(message.author.id == "513103852409716736" || message.author.id == "456641711486009355") {
         isDeveloper = true
+        console.log("Developer = True")
       } else {
         isDeveloper = false
+        console.log("Developer = False")
       }
       isPartner = false
       
