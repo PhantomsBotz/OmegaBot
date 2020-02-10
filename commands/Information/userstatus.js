@@ -25,9 +25,9 @@ module.exports = {
       
       let em = new Discord.RichEmbed()
       .setTitle("User Status")
-      .addField("Is Premium User": isPremium)
-      .addField("Is Developer": isDeveloper)
-      .addField("Is Partner": isPartner)
+      .addField("Is Premium User", isPremium)
+      .addField("Is Developer", isDeveloper)
+      .addField("Is Partner", isPartner)
       if(isPremium = true) {
       embed.setColor("GOLD")
       } else {
