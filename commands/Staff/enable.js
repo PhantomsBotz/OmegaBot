@@ -20,9 +20,7 @@ module.exports = {
     
     
      let command = bot.commands.get(args[0].toLowerCase());
-     console.log(command.name);
     let isDisabled = await db.fetch(`Disabled_${message.guild.id}_${args[0]}`);
-   console.log(isDisabled);
         if (args[0] == 'help' || args[0] == 'disable' || args[0] == 'enable' || args[0] == 'support') return message.channel.send(':x: That command cannot be disabled.');
     if (!command) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
     if (isDisabled == null) isDisabled = false
