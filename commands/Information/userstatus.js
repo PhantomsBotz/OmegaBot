@@ -41,7 +41,7 @@ module.exports = {
     if (isPremium == "False" || isPartner == "False") {
       em.setColor("#5595A6")
       }
-    if(isPartner = "True") {
+    if(isPartner == "True") {
        em.setColor("PURPLE")
        }
 
