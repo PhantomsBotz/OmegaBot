@@ -8,6 +8,8 @@ module.exports = {
   aliases: ['k', 'remove'],
   
   run:async (bot, message, args) => {
-
+      let db = require('quick.db')
+        let isDisabled = await db.fetch(`Disabled_${message.guild.id}_botinfo`);
+    if (isDisabled == true) return;
     }
 }
