@@ -1,6 +1,7 @@
 const fs = require('fs')
 const Discord = require('discord.js')
-const prefix = '^'
+const prefix = '^';
+const db = require('quick.db');
 module.exports = {
   name: 'eval',
   description: 'Evaluates a Javascript String',
