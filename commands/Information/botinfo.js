@@ -7,6 +7,8 @@ module.exports = {
     category: 'Information',
 
     run: async (bot, message, args) => {
+        let db = require('quick.db')
+        let isDisabled = await db.fetch(`Disabled_${message.guild.id}_botinfo`);
         let ping = Math.floor(bot.ping)
         let status = bot.user.status
         let em = new Discord.RichEmbed()
