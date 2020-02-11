@@ -13,7 +13,11 @@ module.exports = {
   run: async (bot, message, args) => {
      let command = bot.commands.get(args[0].toLowerCase())
     let isDisabled = await db.fetch(`Disabled_${message.guild.id}_${args[0]}`);
-    if (isDisabled == true) return message.channel.send('That command is already disabled!');
     if (!command) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
+    if (isDisabled == null) isDisabled = false
+    if (isDisabled == true) return message.channel.send('That command is already disabled!');
+    else {
+     db.set(`Disabled_${message.guild.id}_${args[0]}`, true)          
+    }
   }
 }
