@@ -25,8 +25,11 @@ module.exports = {
         isDeveloper = "False"
         console.log("Developer = False")
       }
-      isPartner = "False"
-      
+      if(message.member.roles.find(r => r.name === "Partnerships")) {
+       isPartner = "True"
+      } else {
+       isPartner = "False"
+      }
       let em = new Discord.RichEmbed()
       .setTitle("User Status")
       .addField("Is Premium User", isPremium)
@@ -35,9 +38,12 @@ module.exports = {
       if(isPremium == "True") {
       em.setColor("GOLD")
       }
-    if (isPremium == false) {
+    if (isPremium == "False") {
       em.setColor("#5595A6")
       }
+    if(isPartner = "True") {
+       em.setColor("PURPLE")
+       }
       message.channel.send({embed: em})
 
       
