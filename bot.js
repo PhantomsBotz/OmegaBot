@@ -51,8 +51,13 @@ bot.on("guildMemberAdd", (member) => {
     let guild = member.guild;
     let mainChannel = "676182247958904882"
     let channel = guild.channels.get(mainChannel)
+    let memberRole = guild.roles.find(r => r.name == "Member")
+    
+  if (guild.id = "612404705376600072") {
+      channel.send(`Welcome, ${member} to the Omega Support Server.`)
+      member.addRole(memberRole)
+  } else return console.log("Not Support Server.");
   
-  channel.send(`Welcome, ${member} to the Omega Support Server.`)
 })
 
 
