@@ -8,17 +8,25 @@ module.exports = {
   description: 'Disables a command or entire selection of commands',
   category: 'Staff',
   run: async (bot, message, args) => {
+    let success = new Discord.RichEmbed()
+    .setTitle('Success!')
+    .setDescription(`Successfully disabled the command(s) ${args[0]}.`)
+    .setColor('#5595A6');
         const embed = new Discord.RichEmbed()
-            .setColor('RANDOM')
+            .setColor('#5595A6')
             .setAuthor(`${message.guild.me.displayName}`, message.guild.iconURL)
-            .setThumbnail(bot.user.displayAvatarURL);      
-     let command = bot.commands.get(args[0].toLowerCase())
+            .setThumbnail(bot.user.displayAvatarURL);    
+    
+    
+     let command = bot.commands.get(args[0].toLowerCase());
+     console.log(command);
     let isDisabled = await db.fetch(`Disabled_${message.guild.id}_${args[0]}`);
     if (!command) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
     if (isDisabled == null) isDisabled = false
     if (isDisabled == true) return message.channel.send('That command is already disabled!');
     else {
-     db.set(`Disabled_${message.guild.id}_${args[0]}`, true)          
+     db.set(`Disabled_${message.guild.id}_${args[0]}`, true)    
+      message.channel.send(success)
     }
   }
 }
