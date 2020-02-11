@@ -35,15 +35,16 @@ module.exports = {
       .addField("Is Premium User", isPremium)
       .addField("Is Developer", isDeveloper)
       .addField("Is Partner", isPartner)
+       if(isPartner == "True") {
+       em.setColor("PURPLE")
+       }
       if(isPremium == "True") {
       em.setColor("GOLD")
       }
-    if (isPremium == "False" || isPartner == "False") {
+    if (isPremium == "False") {
       em.setColor("#5595A6")
       }
-    if(isPartner == "True") {
-       em.setColor("PURPLE")
-       }
+
 
       message.channel.send({embed: em})
 
