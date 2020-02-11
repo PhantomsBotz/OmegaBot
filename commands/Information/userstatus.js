@@ -38,12 +38,13 @@ module.exports = {
       if(isPremium == "True") {
       em.setColor("GOLD")
       }
-    if (isPremium == "False") {
+    if (isPremium == "False" || isPartner == "False") {
       em.setColor("#5595A6")
       }
     if(isPartner = "True") {
        em.setColor("PURPLE")
        }
+
       message.channel.send({embed: em})
 
       
