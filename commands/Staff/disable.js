@@ -10,7 +10,7 @@ module.exports = {
   run: async (bot, message, args) => {
     let success = new Discord.RichEmbed()
     .setTitle('Success!')
-    .setDescription(`Successfully disabled the command(s) ${args[0]}.`)
+    .setDescription(`Successfully disabled the command ${args[0]}.`)
     .setColor('#5595A6');
         const embed = new Discord.RichEmbed()
             .setColor('#5595A6')
@@ -19,9 +19,9 @@ module.exports = {
     
     
      let command = bot.commands.get(args[0].toLowerCase());
-     console.log(command);
+     console.log(command.name);
     let isDisabled = await db.fetch(`Disabled_${message.guild.id}_${args[0]}`);
-    if (!command) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
+    if (!command.name || command.category) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
     if (isDisabled == null) isDisabled = false
     if (isDisabled == true) return message.channel.send('That command is already disabled!');
     else {
