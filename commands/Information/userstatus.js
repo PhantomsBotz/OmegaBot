@@ -1,12 +1,16 @@
 const fs = require('fs')
 const Discord = require('discord.js')
 const prefix = '^'
+ let db = require('quick.db')
+  
 module.exports = {
   name: 'userstatus',
   description: 'Checks your basic status.',
   category: 'Information',
   
   run:async (bot, message, args) => {
+    let isDisabled = await db.fetch(`Disabled_${message.guild.id}_userstatus`);
+    if (isDisabled == true) return;
       let isDeveloper;
       let isPremium;
       let isPartner;
