@@ -8,6 +8,7 @@ module.exports = {
   description: 'Disables a command or entire selection of commands',
   category: 'Staff',
   run: async (bot, message, args) => {
+    if (message.member.hasPermission("MANAGE_SERVER") || message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('Error: Missing permissions')
     let success = new Discord.RichEmbed()
     .setTitle('Success!')
     .setDescription(`Successfully disabled the command ${args[0]}.`)
