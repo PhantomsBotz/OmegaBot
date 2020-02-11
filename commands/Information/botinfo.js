@@ -18,11 +18,11 @@ module.exports = {
             .addField("Prefix", "^")
             .addField("Status", status)
             .addField("Nickname", bot.user.displayName)
-        if (status = "online") {
+        if (status == "online") {
             em.setColor("GREEN")
-        } else if (status = "idle") {
+        } else if (status == "idle") {
             em.setColor("GOLD")
-        } else if (status = "dnd") {
+        } else if (status == "dnd") {
             em.setColor("RED")
         }
         message.channel.send({
