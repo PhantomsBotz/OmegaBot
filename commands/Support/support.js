@@ -12,7 +12,7 @@ module.exports = {
   let requestID = Math.floor(Math.random() * 9999999999999)
   const embed1 = new Discord.RichEmbed()
             .setTitle("Support notification")
-            .setDescription(`${message.channel.author} has requested support`)
+            .setDescription(`${message.author.username} has requested support`)
             .addField("Server", message.guild.name)
             .addField("Userid", message.author.id)
             .setFooter(`Request ID: ${requestID}` )
