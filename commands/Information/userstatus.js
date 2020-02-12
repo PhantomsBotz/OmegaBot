@@ -31,6 +31,8 @@ var con = MySQL.createConnection({
     
     if(premiumCheck = "1") {
      let isPremium = "True"
+    } else {
+     let isPremium = "False"
     }
     
    })
