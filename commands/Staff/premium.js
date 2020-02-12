@@ -23,7 +23,7 @@ var con = MySQL.createConnection({
    if(!user) return message.channel.send("**You need to mention someone to give premium to. <:OmegaError:676294970377764864>**")
    let em = new Discord.RichEmbed()
    .setTitle("Premium Management")
-   .addField("User has been given premium status.")
+   .addField("User has been given premium status.", `<@${user}>`)
    .setColor("GOLD")
    
    con.query(`SHOW * FROM users WHERE userid = '${user}'`, (err, rows) => {
