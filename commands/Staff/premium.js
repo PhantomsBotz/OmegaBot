@@ -20,6 +20,7 @@ var con = MySQL.createConnection({
       
    if(!message.author.id == "513103852409716736" || !message.author.id == "456641711486009355") return;
    let user = message.mentions.users.first().id
+   if(!user) return message.channel.send("**You need to mention someone to give premium to. <:OmegaError:676294970377764864>**")
    let em = new Discord.RichEmbed()
    .setTitle("Premium Management")
    .addField("User has been given premium status.")
