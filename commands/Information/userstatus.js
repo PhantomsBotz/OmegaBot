@@ -34,7 +34,7 @@ var con = MySQL.createConnection({
     } else {
      let isPremium = "False"
     }
-    
+    console.log(isPremium)
    })
      
       let em = new Discord.RichEmbed()
