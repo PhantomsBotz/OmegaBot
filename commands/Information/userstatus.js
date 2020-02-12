@@ -29,7 +29,9 @@ var con = MySQL.createConnection({
     let premiumCheck = rows[0].premium
     let partnerCheck; // Not Implimented Yet.
     
-    if(premiumCheck = "1") return isPremium = "True"
+    if(premiumCheck = "1") {
+    isPremium = "True"
+    }
     
    })
      
