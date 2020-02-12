@@ -29,7 +29,7 @@ var con = MySQL.createConnection({
    con.query(`SHOW * FROM user WHERE userid = '${user}'`, (err, rows) => {
      let sql;
 
-      sql = `UPDATE user SET premium = 1 WHERE userid = '${message.author.id}'`
+      sql = `UPDATE user SET premium = 1 WHERE userid = '${user}'`
     con.query(sql, console.log)
    })
     message.channel.send({embed: em})
