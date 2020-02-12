@@ -11,7 +11,8 @@ module.exports = {
       let suggest = args.join(" ");
       let em = new Discord.RichEmbed()
       .setTitle("Suggestion")
-      .setDescription(`This was sent by ${author.username}`)
+      .setDescription(`This was sent by ${message.author.username}`)
+      .addField("User ID: ", message.author.id)
       .addField("Suggestion: ", suggest)
       .setColor("#5595A6")
       
