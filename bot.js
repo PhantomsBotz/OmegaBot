@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const fs = require("fs");
+const ubl = require(`./ubl.json`).userblacklists
 var prefix = "^"
 let ascii = require('ascii-table')
 let table = new ascii("Commands");
@@ -111,6 +112,7 @@ bot.on('message', message => {
   let args = mArray.slice(1)
   let cmd = bot.commands.get(mArray[0].slice(prefix.length))
   if (message.author.bot) return;
+  if(ubl.includes(message.author.id)) return;
   if (message.channel.type == "dm") return;
   if (message.author.id === "242734840829575169") return;
   if (!message.content.startsWith(prefix)) return;
