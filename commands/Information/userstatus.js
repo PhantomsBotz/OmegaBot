@@ -24,10 +24,10 @@ var con = MySQL.createConnection({
       let isPartner;
    
    con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
-    let premiumCheck = rows[0].premium
+    let premiumCheck = rows[2].premium
     let partnerCheck; // Not Implimented Yet.
     
-    if premiumCheck = 1 return isPremium = "True"
+    
     
    })
      
