@@ -24,6 +24,8 @@ var con = MySQL.createConnection({
       let isPartner;
    
    con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
+    if(err) throw err
+    
     let premiumCheck = rows[2].premium
     let partnerCheck; // Not Implimented Yet.
     
