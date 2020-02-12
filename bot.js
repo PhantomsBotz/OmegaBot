@@ -46,6 +46,34 @@ bot.on("ready", () => {
   bot.user.setActivity("^help");
 });
 
+//SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
+const MySQL = require("mysql")
+var con = MySQL.createConnection({
+    "host": "remotemysql.con",
+    "user": "qOnmCFWJtY",
+    "database": "qOnmCFWJtY",
+    "password": process.env.SQLPASS
+})
+
+con.connect(err => {
+    if(err) throw err
+    console.log("Connected")
+})
+
+bot.on("guildCreate", (guild) => {
+    con.query(`SELECT * FROM server WHERE guildid = ${guild.id}`, (err, rows) => {
+        if(err) throw err
+        
+        let sql;
+        
+        sql = `INSERT INTO server (guildid, ownerid, partner, premium) VALUES ('${guild.id}', '${guild.owner.id}', '0', '0')`
+        
+        con.query(sql, console.log)
+    })
+})
+
+//SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
+
 //Temp BaseWelcomer
 bot.on("guildMemberAdd", (member) => {
     let guild = member.guild;
