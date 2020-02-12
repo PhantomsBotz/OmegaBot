@@ -16,6 +16,7 @@ module.exports = {
   description: 'Allows the developers to change a users premium status.',
   category: 'Staff',
   run: async (bot, message, args, con) => {
+   if(!message.author.id == "513103852409716736" || !message.author.id == "456641711486009355") return;
    let user = message.mentions.users.first().id
    let em = new Discord.RichEmbed()
    .setTitle("Premium Management")
@@ -26,6 +27,7 @@ module.exports = {
      let sql;
      let premium = rows[0].premium
       sql = `UPDATE users SET premium = '1' WHERE userid = '${message.author.id}'`
-   }).then(message.channel.send({embed: em}))
+   })
+    message.channel.send({embed: em})
   }
 }
