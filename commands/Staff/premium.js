@@ -26,10 +26,10 @@ var con = MySQL.createConnection({
    .addField("User has been given premium status.", `<@${user}>`)
    .setColor("GOLD")
    
-   con.query(`SHOW * FROM users WHERE userid = '${user}'`, (err, rows) => {
+   con.query(`SHOW * FROM user WHERE userid = '${user}'`, (err, rows) => {
      let sql;
 
-      sql = `UPDATE users SET premium = 1 WHERE userid = '${message.author.id}'`
+      sql = `UPDATE user SET premium = 1 WHERE userid = '${message.author.id}'`
     con.query(sql, console.log)
    })
     message.channel.send({embed: em})
