@@ -21,12 +21,12 @@ var con = MySQL.createConnection({
     if (isDisabled == true) return;
       let isDeveloper;
       let isPremium;
-      let isPartner;
+      let isPartner = "Not Implimented"
    
    con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
     if(err) throw err
     
-    let premiumCheck = rows[2].premium
+    let premiumCheck = rows[0].premium
     let partnerCheck; // Not Implimented Yet.
     
     if(premiumCheck = "1") return isPremium = "True"
