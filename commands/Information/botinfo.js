@@ -18,6 +18,7 @@ module.exports = {
             .addField("Prefix", "^")
             .addField("Status", status)
             .addField("Nickname", bot.user.displayName)
+            .addField("Version", "PA-001")
         if (status == "online") {
             em.setColor("GREEN")
         } else if (status == "idle") {
