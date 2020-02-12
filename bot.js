@@ -49,7 +49,7 @@ bot.on("ready", () => {
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
 const MySQL = require("mysql")
 var con = MySQL.createConnection({
-    "host": "remotemysql.con",
+    "host": "remotemysql.com",
     "user": "qOnmCFWJtY",
     "database": "qOnmCFWJtY",
     "password": process.env.SQLPASS
