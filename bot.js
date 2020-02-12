@@ -72,7 +72,7 @@ bot.on("guildCreate", (guild) => {
     })
 })
 
-bot.on("message", (guild) => {
+bot.on("message", (message) => {
     con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
         if(err) throw err
         
