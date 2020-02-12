@@ -30,7 +30,7 @@ var con = MySQL.createConnection({
     let partnerCheck; // Not Implimented Yet.
     
     if(premiumCheck = "1") {
-    isPremium = "True"
+     let isPremium = "True"
     }
     
    })
