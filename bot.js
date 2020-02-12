@@ -72,6 +72,21 @@ bot.on("guildCreate", (guild) => {
     })
 })
 
+bot.on("message", (guild) => {
+    con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
+        if(err) throw err
+        
+        let sql;
+     
+ if(rows.length < 1 ) {
+       sql = `INSERT INTO user (userid, premium, partner) VALUES ('${message.author.id}', '0', '0')`
+    } else return;
+        
+        
+        con.query(sql, console.log)
+    })
+})
+
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
 
 //Temp BaseWelcomer
