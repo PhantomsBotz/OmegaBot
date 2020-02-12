@@ -8,7 +8,7 @@ module.exports = {
 
     run: async (bot, message, args) => {
       let targetid = args[0]
-      let Message = args.join(" ").pop(0)
+      let Message = args.slice(1).join(" ")
       
       let targetMessage = new Discord.RichEmbed()
       .setTitle("Message from my Developer Team")
