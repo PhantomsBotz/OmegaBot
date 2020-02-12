@@ -16,6 +16,12 @@ module.exports = {
       .addField("Suggestion: ", suggest)
       .setColor("#5595A6")
       
-      bot.channels.get(Channel).send({embed: em})
+      let response = new Discord.RichEmbed()
+      .setTitle("Thank you for the suggestion!")
+      .setDescription("This has been sent to my developer team.")
+      .setColor("#5595A6")
+      .setFooter(`This was requested by ${message.author.username}`)
+      
+      bot.channels.get(Channel).send({embed: em}).then(message.channel.send({embed: response}))
     }
 }
