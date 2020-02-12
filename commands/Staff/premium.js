@@ -2,6 +2,14 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const db = require('quick.db');
 const prefix = '^';
+const MySQL = require("mysql")
+var con = MySQL.createConnection({
+    "host": "remotemysql.com",
+    "user": "qOnmCFWJtY",
+    "database": "qOnmCFWJtY",
+    "password": process.env.SQLPASS
+})
+
 
 module.exports = {
   name: 'premium',
