@@ -9,7 +9,7 @@ module.exports = {
   
   run:async (bot, message, args) => {
       let db = require('quick.db')
-        let isDisabled = await db.fetch(`Disabled_${message.guild.id}_botinfo`);
+        let isDisabled = await db.fetch(`Disabled_${message.guild.id}_kick`);
     if (isDisabled == true) return;
     }
 }
