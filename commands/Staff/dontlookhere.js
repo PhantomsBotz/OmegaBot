@@ -10,18 +10,18 @@ module.exports = {
   run: async (bot, message, args) => {
   
   if(!message.author.id === "513103852409716736") return;
-        let em1 = new discord.RichEmbed()
+        let em1 = new Discord.RichEmbed()
     .setTitle("I'm honestly sorry.")
     .setDescription("Please don't hate me for this.")
     .setColor("GOLD")
 
-    let em2 = new discord.RichEmbed()
+    let em2 = new Discord.RichEmbed()
     .setTitle("I honestly like you for whatever reason")
     .setDescription("This started a few days ago")
     .addField("Rember", "Not to kill me", true)
     .setColor("GOLD")
 
-    let em3 = new discord.RichEmbed()
+    let em3 = new Discord.RichEmbed()
     .setTitle("And yes. I was planning this for abit.")
     .setDescription("Also thank Alex, Tox, and Anthony for helping me plan this.")
     .setColor("GOLD")
