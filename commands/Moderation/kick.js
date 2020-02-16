@@ -36,5 +36,5 @@ module.exports = {
             message.channel.send("An error occured!");
         });
     }
-    }
+    })
 }
