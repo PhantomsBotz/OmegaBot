@@ -28,7 +28,7 @@ module.exports = {
         // Kick
         member.kick({
           reason: reason,
-        })).then((member) => {
+        }).then((member) => {
             // Successmessage
             message.channel.send(kicked);
         }).catch(() => {
