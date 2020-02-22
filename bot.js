@@ -48,7 +48,7 @@ bot.on("ready", () => {
 });
 
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
-const MySQL = require("mysql")
+/*const MySQL = require("mysql")
 var con = MySQL.createConnection({
     "host": "remotemysql.com",
     "user": "qOnmCFWJtY",
@@ -87,7 +87,7 @@ bot.on("message", (message) => {
         con.query(sql, console.log)
     })
 })
-
+*/
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
 
 //Temp BaseWelcomer
