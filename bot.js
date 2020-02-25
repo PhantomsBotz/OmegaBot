@@ -117,7 +117,7 @@ bot.on('message', message => {
   if (message.author.id === "242734840829575169") return;
   if (!message.content.startsWith(prefix)) return;
   if (cmd) {
-    cmd.run(bot, message, args, Discord, con)
+    cmd.run(bot, message, args, Discord)
     console.log(`${message.author.username} used the ${message.content.split(" ")[0]} command.`);
   }
 })
