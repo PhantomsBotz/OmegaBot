@@ -10,6 +10,7 @@ module.exports = {
   run:async (bot, message, args) => {
     let reason;
      if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send('Error: Missing permissions')
+    if (!args[0]) return message.channel.send('Invalid usage: Try ^kick [user] [reason]');
             var member = message.mentions.members.first() || bot.users.get(args[0]);
     
     let kicked = new Discord.RichEmbed()
