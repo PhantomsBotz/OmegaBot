@@ -17,7 +17,7 @@ var con = MySQL.createConnection({
 })
     con.connect(function(err) {
   if (err) throw err;
-  con.query("SELECT kick FROM guildid", function (err, result, fields) {
+  con.query("SELECT kick FROM server", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
   });
