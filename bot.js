@@ -9,7 +9,6 @@ table.setHeading("Command", "Load status");
 bot.commands = new Discord.Collection()
 bot.aliases = new Discord.Collection()
 // event handler
-module.exports = (bot) => {
     const load = dirs => {    
         const events = fs.readdirSync(`./events/${dirs}/`).filter(d => d.endsWith('.js'));
         for (let file of events) {
@@ -19,7 +18,6 @@ module.exports = (bot) => {
           };
         };
         ["logs"].forEach(x => load(x));
-};
 // command handler
   fs.readdirSync("./commands/").forEach(dir => {
     
