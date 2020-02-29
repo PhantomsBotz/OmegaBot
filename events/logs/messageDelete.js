@@ -7,7 +7,6 @@ module.exports = async (bot, message) => {
   const deletionLog = fetchedLogs.entries.first();
   const {executor, target} = deletionLog;
 const user = message.author;
-console.log('test');
 let deleteEmbed = new Discord.RichEmbed()
   .setTitle("A message was deleted!")
   .addField("User", user.tag)
