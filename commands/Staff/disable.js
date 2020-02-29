@@ -7,7 +7,13 @@ module.exports = {
   name: 'disable',
   description: 'Disables a command or entire selection of commands',
   category: 'Staff',
-  run: async (bot, message, args, con) => {
+  run: async (bot, message, args) => {
+var con = MySQL.createConnection({
+    "host": "remotemysql.com",
+    "user": "qOnmCFWJtY",
+    "database": "qOnmCFWJtY",
+    "password": process.env.SQLPASS
+})
     con.connect(function(err) {
   if (err) throw err;
   con.query("SELECT kick FROM guildid", function (err, result, fields) {
