@@ -7,7 +7,14 @@ module.exports = {
   name: 'disable',
   description: 'Disables a command or entire selection of commands',
   category: 'Staff',
-  run: async (bot, message, args) => {
+  run: async (bot, message, args, con) => {
+    con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT kick FROM guildid", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
     if (!message.member.hasPermission("MANAGE_SERVER")) return message.channel.send('Error: Missing permissions')
     let success = new Discord.RichEmbed()
     .setTitle('Success!')
@@ -21,10 +28,8 @@ module.exports = {
     
      let command = bot.commands.get(args[0].toLowerCase());
     if (args[0] == 'help' || args[0] == 'disable' || args[0] == 'enable' || args[0] == 'support') return message.channel.send(':x: That command cannot be disabled.');
-    let isDisabled = await db.fetch(`Disabled_${message.guild.id}_${args[0]}`);
     if (!command) return message.channel.send(embed.setTitle("Invalid Command.").setDescription(`Do \`${prefix}help\` for the list of the commands.`))
-    if (isDisabled == null) isDisabled = false
-    if (isDisabled == true) return message.channel.send('That command is already disabled!');
+    if (isDisabled == '1') return message.channel.send('That command is already disabled!');
     else {
      db.set(`Disabled_${message.guild.id}_${args[0]}`, true)    
       message.channel.send(success)
