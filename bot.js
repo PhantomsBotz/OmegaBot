@@ -65,7 +65,7 @@ bot.on("guildCreate", (guild) => {
         
         let sql;
         
-        sql = `INSERT INTO server (guildid, ownerid, partner, premium, kick) VALUES ('${guild.id}', '${guild.owner.id}', '0', '0', '1')`
+        sql = `INSERT INTO server (guildid, ownerid, partner, premium, kick) VALUES ('${guild.id}', '${guild.owner.id}', '0', '0', '0')`
         
         con.query(sql, console.log)
     })
