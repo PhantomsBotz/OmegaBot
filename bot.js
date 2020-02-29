@@ -46,7 +46,7 @@ bot.on("ready", () => {
 });
 
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
-/*const MySQL = require("mysql")
+const MySQL = require("mysql")
 var con = MySQL.createConnection({
     "host": "remotemysql.com",
     "user": "qOnmCFWJtY",
@@ -85,7 +85,6 @@ bot.on("message", (message) => {
         con.query(sql, console.log)
     })
 })
-*/
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
 
 //Temp BaseWelcomer
@@ -115,7 +114,7 @@ bot.on('message', message => {
   if (message.author.id === "242734840829575169") return;
   if (!message.content.startsWith(prefix)) return;
   if (cmd) {
-    cmd.run(bot, message, args, Discord)
+    cmd.run(bot, message, args, Discord, con)
     console.log(`${message.author.username} used the ${message.content.split(" ")[0]} command.`);
   }
 })
