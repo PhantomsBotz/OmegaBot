@@ -10,9 +10,6 @@ module.exports = {
   run:async (bot, message, args) => {
     let reason;
      if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send('Error: Missing permissions')
-     let db = require('quick.db')
-        let isDisabled = await db.fetch(`Disabled_${message.guild.id}_kick`);
-    if (isDisabled == true) return;
             var member = message.mentions.members.first() || bot.users.get(args[0]);
     
     let kicked = new Discord.RichEmbed()
