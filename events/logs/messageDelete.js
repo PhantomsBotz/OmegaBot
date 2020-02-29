@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = async (bot, message) => { 
   	if (message.author.bot) return;
-const user = message.author
+const user = message.author;
 console.log('test');
 let deleteEmbed = new Discord.RichEmbed()
   .setTitle("A message was deleted!")
