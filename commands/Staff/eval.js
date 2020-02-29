@@ -8,7 +8,7 @@ module.exports = {
   category: 'Staff',
   aliases: ['exe', 'execute'],
   
-  run:async (bot, message, args) => {
+  run:async (bot, message, args, con) => {
  
 
 const IDS = require(`../../config.json`).ownerids 
