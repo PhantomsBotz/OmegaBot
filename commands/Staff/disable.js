@@ -8,6 +8,7 @@ module.exports = {
   description: 'Disables a command or entire selection of commands',
   category: 'Staff',
   run: async (bot, message, args) => {
+       const MySQL = require("mysql")
 var con = MySQL.createConnection({
     "host": "remotemysql.com",
     "user": "qOnmCFWJtY",
