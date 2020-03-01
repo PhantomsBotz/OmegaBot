@@ -27,7 +27,6 @@ let command = bot.commands.get(args[0].toLowerCase());
     if (result === '1') return message.channel.send('That command is disabled already!')
     else {
       let sql = `UPDATE server SET ${args[0]} = '1' WHERE guildid = ${message.guild.id}`;
-      
       con.query(sql, console.log)
       let success = new Discord.RichEmbed()
     .setTitle('Success!')
@@ -43,6 +42,5 @@ let command = bot.commands.get(args[0].toLowerCase());
 });
    
     
-    }
   }
 }
