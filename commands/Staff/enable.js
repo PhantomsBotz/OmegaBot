@@ -43,6 +43,5 @@ let command = bot.commands.get(args[0].toLowerCase());
 });
    
     
-    }
   }
 }
