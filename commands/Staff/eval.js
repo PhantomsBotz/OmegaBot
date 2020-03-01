@@ -9,7 +9,14 @@ module.exports = {
   aliases: ['exe', 'execute'],
   
   run:async (bot, message, args, con) => {
- 
+        const MySQL = require("mysql")
+var con = MySQL.createConnection({
+    "host": "remotemysql.com",
+    "user": "qOnmCFWJtY",
+    "database": "qOnmCFWJtY",
+    "password": process.env.SQLPASS
+})
+
 
 const IDS = require(`../../config.json`).ownerids 
 module.exports.run = (bot, message, args) => {
