@@ -85,6 +85,7 @@ bot.on("message", (message) => {
         con.query(sql, console.log)
     })
 })
+let sql = `SELECT * FROM server `
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
 
 //Temp BaseWelcomer
