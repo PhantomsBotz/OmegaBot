@@ -12,6 +12,7 @@
     "covid19-api": "^1.0.6",
     "covid19-stats": "^1.0.5",
     "express": "^4.16.3",
+    "common-tags": "latest",
     "quick.db": "latest"
   }
 }
