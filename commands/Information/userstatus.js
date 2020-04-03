@@ -13,8 +13,9 @@ let status = bot.getUserStatus.get(message.author.id);
  
     let premiumCheck = status.premium;
     let partnerCheck = status.partner;
-    if (message.author.id == '456641711486009355' || message.author.id == '513103852409716736') let isDeveloper = 'True';
-   else let isDeveloper = 'False'
+    if (message.author.id == '456641711486009355' || message.author.id == '513103852409716736'){
+     let isDeveloper = 'True';
+    } else let isDeveloper = 'False'
    
    
     if(premiumCheck = 1) {
