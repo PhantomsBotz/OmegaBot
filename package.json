@@ -13,6 +13,7 @@
     "covid19-stats": "^1.0.5",
     "express": "^4.16.3",
     "common-tags": "latest",
-    "better-sqlite3": "latest"
+    "better-sqlite3": "latest",
+    "quick.db": "latest"
   }
 }
