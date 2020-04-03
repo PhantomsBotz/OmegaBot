@@ -3,6 +3,8 @@ const bot = new Discord.Client();
 const fs = require("fs");
 const ubl = require(`./ubl.json`).userblacklists
 var prefix = "^"
+const SQLite = require("better-sqlite3");
+const sql = new SQLite('./db.sqlite');
 let ascii = require('ascii-table')
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status");
