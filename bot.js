@@ -43,51 +43,40 @@ bot.aliases = new Discord.Collection()
 bot.on("ready", () => {
   console.log("Ready");
   bot.user.setActivity("^help");
+    
+    
 });
 
 //SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
-const MySQL = require("mysql")
-var con = MySQL.createConnection({
-    "host": "remotemysql.com",
-    "user": "qOnmCFWJtY",
-    "database": "qOnmCFWJtY",
-    "password": process.env.SQLPASS
-})
 
-con.connect(err => {
-    if(err) throw err
-    console.log("Connected")
+bot.on("ready", () => {
+   let server = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'server';").get();
+  if (!server['count(*)']) {
+    sql.prepare("CREATE TABLE server (guildid TEXT, ownerid TEXT, partner TEXT, premium TEXT);").run();
+    sql.prepare("CREATE UNIQUE INDEX idx_server_guildid ON server (guildid);").run();
+    sql.pragma("journal_mode = wal");    
+      sql.pragma("synchronous = 1");
+  }
+      let user = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'user';").get();
+  if (!user['count(*)']) {
+    sql.prepare("CREATE TABLE user (userid TEXT, premium INTEGER, partner INTEGER);").run();
+    sql.prepare("CREATE UNIQUE INDEX idx_user_userid ON user (userid);").run();
+    sql.pragma("journal_mode = wal");    
+      sql.pragma("synchronous = 1");
+  }
+    bot.getUserStatus = sql.prepare("SELECT * FROM user WHERE userid = ?");
+    bot.getGuildStatus = sql.prepare("SELECT * FROM server WHERE guildid = ?")
 })
-
 bot.on("guildCreate", (guild) => {
-    con.query(`SELECT * FROM server WHERE guildid = ${guild.id}`, (err, rows) => {
-        if(err) throw err
-        
-        let sql;
-        
-        sql = `INSERT INTO server (guildid, ownerid, partner, premium, kick) VALUES ('${guild.id}', '${guild.owner.id}', '0', '0', '0')`
-        
-        con.query(sql, console.log)
-    })
+    sql.prepare(`INSERT INTO guild (guildid, ownerid, partner, premium) VALUES (${guild.id}, ${guild.owner.id}, 0, 0);`);
 })
 
 bot.on("message", (message) => {
-    con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
-        if(err) throw err
-        
-        let sql;
-     
- if(rows.length < 1 ) {
-       sql = `INSERT INTO user (userid, premium, partner) VALUES ('${message.author.id}', '0', '0')`
+   let usercheck = sql.prepare(`SELECT * FROM user WHERE userid = ?`).get(message.author.id)
+    if(!usercheck) {
+       sql.prepare(`INSERT INTO user (userid, premium, partner) VALUES ('${message.author.id}', '0', '0')`);
     } else return;
-        
-        
-        con.query(sql, console.log)
-    })
 })
-let sql = `SELECT * FROM server `
-//SQL -- DO NOT EDIT UNLESS YOU KNOW WHAT YOUR DOING
-
 //Temp BaseWelcomer
 bot.on("guildMemberAdd", (member) => {
     let guild = member.guild;
@@ -115,7 +104,7 @@ bot.on('message', message => {
   if (message.author.id === "242734840829575169") return;
   if (!message.content.startsWith(prefix)) return;
   if (cmd) {
-    cmd.run(bot, message, args, Discord, con)
+    cmd.run(bot, message, args, Discord, sql)
     console.log(`${message.author.username} used the ${message.content.split(" ")[0]} command.`);
   }
 })
