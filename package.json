@@ -1,5 +1,5 @@
 {
-  "name": "Himiatchi",
+  "name": "Omega",
   "version": "0.0.1",
   "scripts": {
     "start": "node bot.js"
@@ -13,6 +13,6 @@
     "covid19-stats": "^1.0.5",
     "express": "^4.16.3",
     "common-tags": "latest",
-    "quick.db": "latest"
+    "better-sqlite3": "latest"
   }
 }
