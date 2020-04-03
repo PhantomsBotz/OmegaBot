@@ -9,33 +9,22 @@ module.exports = {
   category: 'Information',
   
   run:async (bot, message, args) => {
-      const MySQL = require("mysql")
-var con = MySQL.createConnection({
-    "host": "remotemysql.com",
-    "user": "qOnmCFWJtY",
-    "database": "qOnmCFWJtY",
-    "password": process.env.SQLPASS
-})
+let status = bot.getUserStatus.get(message.author.id);
+ 
+    let premiumCheck = status.premium;
+    let partnerCheck = status.partner;
+    if (message.author.id == '456641711486009355' || message.author.id == '513103852409716736') let isDeveloper = 'True';
+   else let isDeveloper = 'False'
    
-    let isDisabled = await db.fetch(`Disabled_${message.guild.id}_userstatus`);
-    if (isDisabled == true) return;
-      let isDeveloper;
-      let isPremium;
-      let isPartner = "Not Implimented"
    
-   con.query(`SELECT * FROM user WHERE userid = ${message.author.id}`, (err, rows) => {
-    if(err) throw err
-    
-    let premiumCheck = rows[0].premium
-    let partnerCheck; // Not Implimented Yet.
-    
-    if(premiumCheck = "1") {
+    if(premiumCheck = 1) {
      let isPremium = "True"
-    } else {
-     let isPremium = "False"
-    }
-    console.log(isPremium)
-   })
+    } else let isPremium = "False"
+    
+    
+    if(partnerCheck = 1) {
+     let isPartner = "True"
+    } else let isPartner = "False"
      
       let em = new Discord.RichEmbed()
       .setTitle("User Status")
@@ -47,9 +36,6 @@ var con = MySQL.createConnection({
        }
       if(isPremium == "True") {
       em.setColor("GOLD")
-      }
-    if (isPremium == "False") {
-      em.setColor("#5595A6")
       }
 
 
